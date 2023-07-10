@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Digit</a>
+        <button (click)="openNavbar()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [ngClass]="status ? 'show' : ''" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li *ngIf="authService.user" class="nav-item">
+                <a class="nav-link" routerLink="/register" (click)="navigateTo('/home')">Home</a>
+            </li>
+            <li *ngIf="!authService.user" class="nav-item">
+                <a class="nav-link" routerLink="/register" (click)="navigateTo('/register')">Register</a>
+            </li>
+            <li *ngIf="!authService.user" class="nav-item">
+                <a class="nav-link" routerLink="/login" (click)="navigateTo('/login')">Login</a>
+            </li>
+            <li *ngIf="authService.user" class="nav-item">
+                <a class="nav-link" routerLink="/login" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>

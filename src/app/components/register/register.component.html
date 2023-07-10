@@ -1,0 +1,15 @@
+<p>register</p>
+<div class="container">
+    <form [formGroup]="form" class="mt-5">
+        <label for="email" class="me-3">Email</label>
+        <input formControlName= "email" type="email" name="email" class="me-3">
+        <label for="password" class="me-3">password</label>
+        <input formControlName= "password" type="password" name="password" class="me-3">
+
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="registerUser()">Submit</button>
+    </form>
+
+    <div *ngIf="authService.msgRegister"  class="alert alert-danger" role="alert">
+        {{authService.msgRegister}}
+    </div>
+</div>
